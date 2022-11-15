@@ -17,6 +17,8 @@ This is a block comment
 let mutableVariable = "Hello, im mutable variable"; // Diese variable kann man umändern
 const unmutableVariable = "Hello, im unmutable variable"; // Diese variable kann man nicht ändern
 
+// mutableVariable = "What's up";  // since the variable is initiated with "let" it can be changed
+// unmutableVariable = "Error thrown cause use of const";
 // console.log() gibt die Variable im Browser unter console wieder
 // console.log(mutableVariable);
 // console.log(unmutableVariable);

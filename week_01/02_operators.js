@@ -67,12 +67,22 @@ let notAnumber = "24";
 //   console.log("Anoter success");
 // }
 
-// The moduls operator (division remainder)
+// The modulo operator (division remainder (RESTWERT))
 // %
-// It divides a number by another number and returns the remainder
+// It divides a number by another number and returns the remainder (RESTWERT)
 // Example, when dividing a number by 2, if the remainder is not zero, that number is odd
 
-// LOOK AT THE CODE
+console.log(13 % 5);
+// expected output: 3
+
+console.log(-13 % 5);
+// expected output: -3
+
+console.log(4 % 2);
+// expected output: 0
+
+console.log(15 % 4);
+// expected output: 3
 
 // The less than or equal to and greater than or equal to operator
 // ( <= ) , ( >= )
