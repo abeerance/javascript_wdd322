@@ -81,3 +81,21 @@ for (let i = 0; i < myArray.length; i++) {
     console.log(myArray[i]);
   }
 }
+
+// String Immutability
+/* 
+Strings are immutable
+This basically means that we CAN'T change single letters in a string
+*/
+
+// So this won't work
+let example = "JavaScript";
+
+example[5] = "x";
+
+console.log(example);
+console.clear();
+
+// We need to redefine the variable
+example = "JavaSxript";
+console.log(example);
