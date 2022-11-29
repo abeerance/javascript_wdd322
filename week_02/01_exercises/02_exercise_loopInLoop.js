@@ -1,7 +1,7 @@
 /**
  * You are in charge of managing social channels for your company.
  * One of your tasks is to get go over user messages and change any negative
- * comments to possitive comments.
+ * comments to positive comments.
  * You have grown tired of doing this and want to automate the process.
  *
  * You have already prepared a bit and created 2 dictionaries.
@@ -23,7 +23,7 @@ let messages = [
 // Expected output is a new array (filtedMessages) with all the messages without any evil words
 var filteredMessages = [];
 
-/* 
+/*
     Think about this logically first, what do we need to do 
     1.) We are going to need to go through every sentence in "messages"
     - this means, we are going to need to loop through the indexes of messages
