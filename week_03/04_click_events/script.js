@@ -1,6 +1,6 @@
 // we have to select the element that we want to add an event listener
 const clickMe = document.querySelector(".button-one");
-console.log(clickMe);
+const styleMe = document.querySelector(".style-button");
 
 /*
     eventListeners usually take two arguments
@@ -62,21 +62,41 @@ clickMe.addEventListener("click", createElement);
 */
 
 function createElement() {
+  // div check if there is already a div inside the body
+  const checkForDivs = document.querySelector("div");
+  // if div found delete it
+  if (checkForDivs !== null) {
+    checkForDivs.remove();
+  }
+
   // the variables are saving the user input from the prompts
   const name = prompt("What is your name?");
   const job = prompt("What was your dream job when you were a kid?");
   const superhero = prompt("Who is your favorite superhero?");
 
-  console.log(name + job + superhero);
-
   if (name === "" || job === "" || superhero === "") {
     alert("You prick you didn't answer me");
   } else {
-    const message = ``;
-    /* Expected output
-      Hello my name is NAME
-      Dream job:
-      My dream job as a kid as JOB and my favorite superhero was and always will be SUPERHERO
-    */
+    const message = `
+    <div>
+      <h1>Hello my name is ${name}</h1>
+      <div>
+        <h2>DREAM JOB:</h2>
+        <p>My dream job as a kid was ${job} and my favorite superhero was and will always be ${superhero}</p>
+      </div>
+    </div>
+  `;
+    console.log(message);
+    const element = document.createElement("div");
+    element.innerHTML = message;
+    htmlBody.appendChild(element);
   }
+}
+
+/* BONUS */
+styleMe.addEventListener("click", styleElement);
+function styleElement() {
+  const firstDiv = document.querySelector("div");
+  // add class to
+  firstDiv.classList.add("background-style");
 }
