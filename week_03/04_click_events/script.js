@@ -22,20 +22,6 @@ const styleMe = document.querySelector(".style-button");
 
 const htmlBody = document.querySelector("body");
 
-// It is better to create a named function and pass it as reference in the callback function
-function handleClick() {
-  console.log("it got clicked!");
-
-  // THIS IS A TEMPLATE STRING
-  const helloWorld = `<h1>Hello World</h1>`;
-  // Because we are using a template string, we need to create an element, in which we add said template string
-  const thisElement = document.createElement("div");
-  // We define, that in thisElement we can add an innerHTML with the value of helloWorld template string
-  thisElement.innerHTML = helloWorld;
-  // we append the thisElement into toe HTML body
-  htmlBody.appendChild(thisElement);
-}
-
 // it is important to not write handleClick() when using a reference
 // else it will fire the function even before the user clicks
 // a named function must only be a reference in an event listener
