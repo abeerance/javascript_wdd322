@@ -1,0 +1,11 @@
+label {
+  background: red;
+}
+
+.got-entered {
+  background: blue;
+}
+
+.got-left {
+  background: pink;
+}
