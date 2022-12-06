@@ -1,7 +1,5 @@
 /* Very simple thumbnail image gallery with vanilla JavaScript */
 
-//  1.) Declare all our variables
-
 // current is the big image in the main-img container
 const current = document.querySelector("#active");
 
