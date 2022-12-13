@@ -10,6 +10,15 @@ function validateForm(event) {
   // and not loosing them
   event.preventDefault();
 
+  // check if a span element with an error message exists in the form
+  // if there is a span, remove it from the HTML Body
+  // so that we have a clean state whenever there is no error message
+  if (document.querySelector("form span")) {
+    document.querySelectorAll("form span").forEach((spanElement) => {
+      spanElement.remove();
+    });
+  }
+
   // Define data object in which we store the user input
   let data = {};
   // Define validationErrors object in which we store errors
@@ -69,6 +78,52 @@ function validateForm(event) {
       console.log(data.message.length);
     }
   }
+
+  // Send data to backend
+  // IF there are errors
+  if (Object.keys(validationErrors).length > 0) {
+    // Display Error messages
+    displayErrors(validationErrors);
+  } else {
+    // send the form to backend
+    console.log("sending form data to backend");
+  }
+
+  function displayErrors(validationErrors) {
+    // Function that will show errors in the page
+
+    if (validationErrors.firstName) {
+      const errorContainer = document.createElement("span");
+      errorContainer.innerHTML = validationErrors.firstName;
+      document.querySelector("#first-name").after(errorContainer);
+    }
+
+    if (validationErrors.lastName) {
+      const errorContainer = document.createElement("span");
+      errorContainer.innerHTML = validationErrors.lastName;
+      document.querySelector("#last-name").after(errorContainer);
+    }
+
+    if (validationErrors.email) {
+      const errorContainer = document.createElement("span");
+      errorContainer.innerHTML = validationErrors.email;
+      document.querySelector("#email").after(errorContainer);
+    }
+
+    if (validationErrors.message) {
+      const errorContainer = document.createElement("span");
+      errorContainer.innerHTML = validationErrors.message;
+      document.querySelector("#message").after(errorContainer);
+    }
+  }
+
+  // Event for input in textare
+  document.querySelector("textarea").addEventListener("input", (inputEvent) => {
+    const counterBox = document.createElement("span");
+    counterBox.innerHTML = inputEvent.target.textLength;
+    inputEvent.target.after(counterBox);
+  });
+
   /*
   // Example with 1 if / else and ternary operators
   if (!data.firstName || !data.lastName || !data.email || !data.message) {
