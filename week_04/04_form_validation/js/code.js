@@ -117,13 +117,6 @@ function validateForm(event) {
     }
   }
 
-  // Event for input in textare
-  document.querySelector("textarea").addEventListener("input", (inputEvent) => {
-    const counterBox = document.createElement("span");
-    counterBox.innerHTML = inputEvent.target.textLength;
-    inputEvent.target.after(counterBox);
-  });
-
   /*
   // Example with 1 if / else and ternary operators
   if (!data.firstName || !data.lastName || !data.email || !data.message) {
@@ -141,3 +134,36 @@ function validateForm(event) {
   }
   */
 }
+
+// Event for textarea
+document
+  .querySelector("textarea")
+  .addEventListener("input", (textAreaInput) => {
+    // Initialize the counter to 30
+    let counter = 30;
+
+    // If else, counterBox div exists
+    if (!document.querySelector(".counterBox")) {
+      const counterBox = document.createElement("span");
+      // set the class of the span-element
+      counterBox.setAttribute("class", "counterBox");
+      counterBox.innerHTML = `Characters needed: ${
+        counter - textAreaInput.target.textLength
+      }`;
+      textAreaInput.target.after(counterBox);
+    } else {
+      document.querySelector(".counterBox").innerHTML = `Characters needed: ${
+        counter - textAreaInput.target.textLength
+      }`;
+    }
+
+    // check if the required characters are met
+    if (textAreaInput.target.textLength < 31) {
+      // reset of the font color if textLength < 31
+      document.querySelector(".counterBox").style.color = "red";
+    } else {
+      document.querySelector(".counterBox").innerHTML =
+        "Desired amount reached";
+      document.querySelector(".counterBox").style.color = "lime";
+    }
+  });
